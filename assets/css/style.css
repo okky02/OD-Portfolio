@@ -148,7 +148,7 @@ h6 {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  transition:transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
 }
 
 #header .social-links a:hover {
@@ -179,6 +179,51 @@ h6 {
   }
 }
 
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header.header-top {
+  height: 80px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: black;
+}
+
+#header.header-top .social-links,
+#header.header-top h2 {
+  display: none;
+}
+
+#header.header-top h1 {
+  margin-right: auto;
+  font-size: 36px;
+}
+
+#header.header-top .container {
+  display: flex;
+  align-items: center;
+}
+
+#header.header-top .nav-menu {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #header.header-top {
+    height: 60px;
+  }
+
+  #header.header-top h1 {
+    font-size: 18px;
+  }
+
+  .header-tops .navigator-Portpolio .logo-ds {
+    max-width: 13%;
+    max-height: 13%;
+  }
+}
 
 /*--------------------------------------------------------------
 # Rocket
@@ -265,7 +310,6 @@ h6 {
     transform: rotate(45deg) scaleY(1);
   }
 }
-
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -409,52 +453,6 @@ h6 {
 
 .mobile-nav-active .mobile-nav-toggle i {
   color: #fff;
-}
-
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
-#header.header-top {
-  height: 80px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  background: black;
-}
-
-#header.header-top .social-links,
-#header.header-top h2 {
-  display: none;
-}
-
-#header.header-top h1 {
-  margin-right: auto;
-  font-size: 36px;
-}
-
-#header.header-top .container {
-  display: flex;
-  align-items: center;
-}
-
-#header.header-top .nav-menu {
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  #header.header-top {
-    height: 60px;
-  }
-
-  #header.header-top h1 {
-    font-size: 18px;
-  }
-
-  .header-tops .navigator-Portpolio .logo-ds {
-    max-width: 13%;
-    max-height: 13%;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -772,6 +770,24 @@ section .container {
 }
 
 /*--------------------------------------------------------------
+# Resume
+--------------------------------------------------------------*/
+.resume p .link-resume{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  top: 20px;
+  font-size: 16px;
+  transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+.resume p .link-resume:hover{
+  transform: scale(1);
+  font-size: 18px;
+  color: #18d26e;
+}
+
+/*--------------------------------------------------------------
 # Work
 --------------------------------------------------------------*/
 .work .work-item {
@@ -1051,20 +1067,20 @@ section .container {
 /*--------------------------------------------------------------
 # Contact Message
 --------------------------------------------------------------*/
-.info-box .tittle-form{
+.info-box .tittle-form {
   display: flex;
   justify-content: center;
   margin: 0 0 10px 0;
   color: rgba(255, 255, 255, 0.5);
 }
 
-.info-box .form-group{
-  margin: 0 auto; 
-  width: 80%; 
+.info-box .form-group {
+  margin: 0 auto;
+  width: 80%;
 }
 
 .info-box .form-group input,
-.info-box .form-group textarea{
+.info-box .form-group textarea {
   background-color: rgba(82, 82, 82, 0.5);
   border: 2px solid #18d26e;
   box-shadow: 0 0 10px rgba(24, 210, 110, 0.6);
@@ -1083,56 +1099,60 @@ section .container {
     border-color: #18d26e;
     box-shadow: 0 0 10px rgba(24, 210, 110, 0.6);
   }
+
   25% {
     border-color: #18d26e;
     box-shadow: 0 0 20px rgba(24, 210, 110, 0.8);
   }
+
   50% {
     border-color: #18d26e;
     box-shadow: 0 0 30px rgba(24, 210, 110, 1);
   }
+
   75% {
     border-color: #18d26e;
     box-shadow: 0 0 20px rgba(24, 210, 110, 0.8);
   }
+
   100% {
     border-color: #18d26e;
     box-shadow: 0 0 10px rgba(24, 210, 110, 0.6);
   }
 }
 
-.info-box .button-message{
-  display: block; 
+.info-box .button-message {
+  display: block;
   background-color: #00fd4c;
   box-shadow: 0 0 10px rgba(24, 210, 110, 0.6);
   color: #fff;
   border-radius: 30px;
   margin: 30px auto 10px;
-  width: 30%; 
-  text-align: center; 
-  transition:transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+  width: 30%;
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
   font-size: 1rem;
 }
 
-.info-box .button-message:hover{
+.info-box .button-message:hover {
   transform: scale(1.1);
   box-shadow: 0 0 30px rgba(24, 210, 110, 1);
 }
 
 @media (max-width: 768px) {
-  .info-box .button-message strong{
-    text-align: center; 
-    font-size: 0.9rem; 
-    margin: 0 auto; 
+  .info-box .button-message strong {
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 0 auto;
 
   }
 }
 
 @media (max-width: 480px) {
-  .info-box .button-message strong{
-    text-align: center; 
-    font-size: 0.8rem; 
-    margin: 0 auto; 
+  .info-box .button-message strong {
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0 auto;
   }
 }
 
@@ -1141,7 +1161,7 @@ section .container {
 --------------------------------------------------------------*/
 .h-captcha {
   display: relative;
-  text-align: center;  
+  text-align: center;
 }
 
 /* -----------------
@@ -1871,7 +1891,7 @@ Portfolio Popup
   width: 44px;
   height: 44px;
   cursor: pointer;
-  transition:transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
 }
 
 .scrollTopBtn:hover {
@@ -1907,4 +1927,3 @@ Portfolio Popup
     background: rgba(0, 0, 0, 0.9);
   }
 }
-
