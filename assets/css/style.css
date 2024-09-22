@@ -735,11 +735,9 @@ section .container {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 24px;
+  color: #18d26e;
 }
 
-.services .icon-box h4 a {
-  color: #fff;
-}
 
 .services .icon-box p {
   line-height: 24px;
@@ -764,7 +762,7 @@ section .container {
   background: #071d1180;
 }
 
-.services .icon-box:hover h4 a,
+.services .icon-box:hover h4 ,
 .services .icon-box:hover p {
   color: #1a1a1a;
 }
