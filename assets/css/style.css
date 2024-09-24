@@ -882,6 +882,7 @@ section .container {
   padding: 20px 0 20px 0;
   border: 1px solid transparent;
   transition: all 0.3s ease;
+  cursor: zoom-in;
 }
 
 .certificates .certificate-item:hover {
