@@ -809,11 +809,14 @@
             </div>
 
             <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="ea1587c0-5c5d-4479-bfb2-825d9732a2d7">
-              <!-- <input type="hidden" name="redirect" value="http://127.0.0.1:5500/index.html"> -->
+              <input type="hidden" name="access_key" value="9a7147da-7309-459d-825f-e592f3b9e9b3">
 
               <div class="form-group">
                 <input type="text" class="form-control" id="inputName" name="name" placeholder="Your Name" required>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputPhone" name="Phone Number" placeholder="Your Phone" required>
               </div>
 
               <div class="form-group">
@@ -821,12 +824,11 @@
               </div>
 
               <div class="form-group">
-                <textarea class="form-control" id="inputMessage" name="message" rows="3" placeholder="Your Message"
+                <textarea class="form-control" id="inputMessage" name="message" rows="5" placeholder="Your Message"
                   required></textarea>
               </div>
 
-
-              <div class="h-captcha" data-captcha="true"></div>
+              <input type="hidden" name="redirect" value="https://web3forms.com/success">
 
               <div class="mb-4">
                 <button type="submit" class="btn button-message"><strong>Submit</strong></button>
