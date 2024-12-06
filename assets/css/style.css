@@ -1018,7 +1018,8 @@ section .container {
   color: #18d26e;
 }
 
-.modal-confirmation #labelConfirmation {
+.modal-confirmation #labelConfirmation, 
+.modal-confirmation #labelConfirmationDownloadResume{
   display: flex;
   justify-content: center;
   color: #ffffff;

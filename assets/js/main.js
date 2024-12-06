@@ -217,12 +217,12 @@ function refreshPage() {
     e.preventDefault();
     targetUrlResume = $(this).attr("href");
     var titleText = $(this).attr("data-title");
-    $("#labelConfirmation").text(titleText);
+    $("#labelConfirmationDownloadResume").text(titleText);
   });
 
   $(document).on("click", "#yesButton", function () {
     if (targetUrlResume) {
-      $("#modalConfirmation").modal("hide");
+      $("#modalConfirmationDownloadResume").modal("hide");
 
       setTimeout(function () {
         window.location.href = targetUrlResume;
