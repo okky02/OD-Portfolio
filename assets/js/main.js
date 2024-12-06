@@ -201,7 +201,32 @@ function refreshPage() {
 
   $(document).on("click", "#yesButton", function () {
     if (targetUrl) {
+      $("#modalConfirmation").modal("hide");
+
+      // Mengarahkan ke URL untuk mengunduh file setelah modal tertutup
+      setTimeout(function () {
       window.location.href = targetUrl;
+      }, 200);
+    }
+  });
+
+  // Confirmation Download Resume Modal
+  var targetUrlResume = "";
+
+  $(document).on("click", ".link-resume", function (e) {
+    e.preventDefault();
+    targetUrlResume = $(this).attr("href");
+    var titleText = $(this).attr("data-title");
+    $("#labelConfirmation").text(titleText);
+  });
+
+  $(document).on("click", "#yesButton", function () {
+    if (targetUrlResume) {
+      $("#modalConfirmation").modal("hide");
+
+      setTimeout(function () {
+        window.location.href = targetUrlResume;
+      }, 300);
     }
   });
 
