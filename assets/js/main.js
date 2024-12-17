@@ -210,26 +210,6 @@ function refreshPage() {
     }
   });
 
-  // Confirmation Download Resume Modal
-  var targetUrlResume = "";
-
-  $(document).on("click", ".link-resume", function (e) {
-    e.preventDefault();
-    targetUrlResume = $(this).attr("href");
-    var titleText = $(this).attr("data-title");
-    $("#labelConfirmationDownloadResume").text(titleText);
-  });
-
-  $(document).on("click", "#yesButton", function () {
-    if (targetUrlResume) {
-      $("#modalConfirmationDownloadResume").modal("hide");
-
-      setTimeout(function () {
-        window.location.href = targetUrlResume;
-      }, 300);
-    }
-  });
-
   // Animasi Form Contact
   $(".form-group input, .form-group textarea").on("focus", function () {
     $(".form-group input, .form-group textarea").removeClass("active");
