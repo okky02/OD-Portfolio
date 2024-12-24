@@ -218,11 +218,6 @@ h6 {
   #header.header-top h1 {
     font-size: 18px;
   }
-
-  .header-tops .navigator-Portpolio .logo-ds {
-    max-width: 13%;
-    max-height: 13%;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -375,7 +370,7 @@ h6 {
   position: fixed;
   right: 15px;
   top: 15px;
-  z-index: 9998;
+  z-index: 10;
   border: 0;
   background: none;
   font-size: 24px;
@@ -1156,59 +1151,8 @@ section .container {
   }
 }
 
-/*--------------------------------------------------------------
-# captcha
---------------------------------------------------------------*/
-.h-captcha {
-  display: relative;
-  text-align: center;
-}
-
 /* -----------------
-Gallery Image Project SlideShow
------------------ */
-.carousel-inner img {
-  width: 100%;
-  height: 100%;
-}
-
-.slideshow_container {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.text_slide_show_project {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%);
-  -webkit-transform: translate(-50%);
-  -moz-transform: translate(-50%);
-  -o-transform: translate(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 2px 8px;
-}
-
-@media (max-width: 992px) {
-  .text_slide_show_project {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 768px) {
-  .text_slide_show_project {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 450px) {
-  .text_slide_show_project {
-    font-size: 9px;
-  }
-}
-
-/* -----------------
-Gallery Image Project Category
+Portfolio Filter
 ----------------- */
 .portfolio-filter-project {
   padding: 0 15px;
@@ -1216,12 +1160,6 @@ Gallery Image Project Category
   margin-bottom: 1%;
   flex: 0 0 100%;
   max-width: 100%;
-  text-align: center;
-}
-
-.portfolio-filter-project-short-by {
-  font-size: 15px;
-  margin-top: 1%;
   text-align: center;
 }
 
