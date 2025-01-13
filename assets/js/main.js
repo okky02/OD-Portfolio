@@ -1,10 +1,3 @@
-/**
- * Template Name: Personal - v2.5.1
- * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
-
 function refreshPage() {
   window.location.reload();
 }
@@ -13,74 +6,74 @@ function refreshPage() {
   "use strict";
 
   // Nav Menu
-  $(document).on("click", ".nav-menu a, .mobile-nav a", function (e) {
-    if (
-      location.pathname.replace(/^\//, "") ==
-        this.pathname.replace(/^\//, "") &&
-      location.hostname == this.hostname
-    ) {
-      var hash = this.hash;
-      var target = $(hash);
-      if (target.length) {
-        e.preventDefault();
+  // $(document).on("click", ".nav-menu a, .mobile-nav a", function (e) {
+  //   if (
+  //     location.pathname.replace(/^\//, "") ==
+  //       this.pathname.replace(/^\//, "") &&
+  //     location.hostname == this.hostname
+  //   ) {
+  //     var hash = this.hash;
+  //     var target = $(hash);
+  //     if (target.length) {
+  //       e.preventDefault();
 
-        if ($(this).parents(".nav-menu, .mobile-nav").length) {
-          $(".nav-menu .active, .mobile-nav .active").removeClass("active");
-          $(this).closest("li").addClass("active");
-        }
+  //       if ($(this).parents(".nav-menu, .mobile-nav").length) {
+  //         $(".nav-menu .active, .mobile-nav .active").removeClass("active");
+  //         $(this).closest("li").addClass("active");
+  //       }
 
-        if (hash == "#header") {
-          $("#header").removeClass("header-top");
-          $("#rocket").show();
-          $("section").removeClass("section-show");
-          if ($("body").hasClass("mobile-nav-active")) {
-            $("body").removeClass("mobile-nav-active");
-            $(".mobile-nav-toggle i").toggleClass(
-              "icofont-navigation-menu icofont-close"
-            );
-            $(".mobile-nav-overly").fadeOut();
-          }
-          return;
-        }
+  //       if (hash == "#header") {
+  //         $("#header").removeClass("header-top");
+  //         $("#rocket").show();
+  //         $("section").removeClass("section-show");
+  //         if ($("body").hasClass("mobile-nav-active")) {
+  //           $("body").removeClass("mobile-nav-active");
+  //           $(".mobile-nav-toggle i").toggleClass(
+  //             "icofont-navigation-menu icofont-close"
+  //           );
+  //           $(".mobile-nav-overly").fadeOut();
+  //         }
+  //         return;
+  //       }
 
-        if (!$("#header").hasClass("header-top")) {
-          $("#header").addClass("header-top");
-          setTimeout(function () {
-            $("section").removeClass("section-show");
-            $(hash).addClass("section-show");
-            $("#rocket").hide();
-          }, 350);
-        } else {
-          $("section").removeClass("section-show");
-          $(hash).addClass("section-show");
-          $("#rocket").hide();
-        }
+  //       if (!$("#header").hasClass("header-top")) {
+  //         $("#header").addClass("header-top");
+  //         setTimeout(function () {
+  //           $("section").removeClass("section-show");
+  //           $(hash).addClass("section-show");
+  //           $("#rocket").hide();
+  //         }, 350);
+  //       } else {
+  //         $("section").removeClass("section-show");
+  //         $(hash).addClass("section-show");
+  //         $("#rocket").hide();
+  //       }
 
-        // Fix Particle Position
-        $("#particles-js").css({
-          position: "fixed",
-          top: "0",
-          left: "0",
-        });
+  //       // Fix Particle Position
+  //       $("#particles-js").css({
+  //         position: "fixed",
+  //         top: "0",
+  //         left: "0",
+  //       });
 
-        $("html, body").animate(
-          {
-            scrollTop: 0,
-          },
-          350
-        );
+  //       $("html, body").animate(
+  //         {
+  //           scrollTop: 0,
+  //         },
+  //         350
+  //       );
 
-        if ($("body").hasClass("mobile-nav-active")) {
-          $("body").removeClass("mobile-nav-active");
-          $(".mobile-nav-toggle i").toggleClass(
-            "icofont-navigation-menu icofont-close"
-          );
-          $(".mobile-nav-overly").fadeOut();
-        }
-        return false;
-      }
-    }
-  });
+  //       if ($("body").hasClass("mobile-nav-active")) {
+  //         $("body").removeClass("mobile-nav-active");
+  //         $(".mobile-nav-toggle i").toggleClass(
+  //           "icofont-navigation-menu icofont-close"
+  //         );
+  //         $(".mobile-nav-overly").fadeOut();
+  //       }
+  //       return false;
+  //     }
+  //   }
+  // });
 
   // Animation Typed Js
   $(document).ready(function() {
@@ -203,7 +196,7 @@ function refreshPage() {
 
       // Mengarahkan ke URL untuk mengunduh file setelah modal tertutup
       setTimeout(function () {
-      window.location.href = targetUrl;
+        window.location.href = targetUrl;
       }, 200);
     }
   });
@@ -244,4 +237,53 @@ function refreshPage() {
     toggleScrollTopBtn();
   });
 
+  // Filter Portfolio
+  $(window).on("load", function () {
+    var portfolioIsotope = $(".portfolio-items").isotope({
+      itemSelector: ".portfolio-item",
+      layoutMode: "fitRows",
+    });
+
+    $(".portfolio-filter-item").on("click", function () {
+      $(".portfolio-filter-item").removeClass("active");
+      $(this).addClass("active");
+
+      portfolioIsotope.isotope({
+        filter: $(this).data("filter"),
+      });
+    });
+  });
 })(jQuery);
+
+// Portfolio Gallery
+document.querySelectorAll("[data-fancybox-trigger='gallery']").forEach((trigger) => {
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    const galleryId = trigger.dataset.galleryId;
+    const galleryItems = Array.from(
+      document.querySelectorAll(`#gallery-${galleryId} a`),
+      (item) => ({ src: item.href, caption: item.dataset.caption })
+    );
+
+    Fancybox.show(galleryItems, {
+      infinite: true,
+      buttons: ["zoom", "close"],
+    });
+  });
+});
+
+// Portfolio Deskripsi 
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("open-description")) {
+    e.preventDefault();
+    const galleryId = e.target.dataset.galleryId;
+    const descriptionContent = document.getElementById(`description-${galleryId}`).innerHTML;
+
+    Fancybox.show([
+      {
+        src: `<div style=\"padding: 20px;\">${descriptionContent}</div>`,
+        type: "html",
+      },
+    ]);
+  }
+});
