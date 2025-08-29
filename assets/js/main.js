@@ -76,14 +76,20 @@ function refreshPage() {
   });
 
   // Animation Typed Js
-  $(document).ready(function() {
+  $(document).ready(function () {
     var typed = new Typed(".typed", {
-      strings: ["Web Developer", "Student"],
+      strings: [
+        "Software Engineer",
+        "Fresh Graduate in Informatics",
+        "Full Stack Enthusiast",
+        "Tech Explorer"
+      ],
       typeSpeed: 100,
       backSpeed: 50,
-      loop: true
+      loop: true,
     });
   });
+
   // Activate/show sections on load with hash links
   if (window.location.hash) {
     var initial_nav = window.location.hash;
@@ -140,15 +146,31 @@ function refreshPage() {
   // Skills section
   $(".skills-content").waypoint(
     function () {
-      $(".progress .progress-bar").each(function () {
-        $(this).css("width", $(this).attr("aria-valuenow") + "%");
+      $(".progress-fill").each(function () {
+        const $this = $(this);
+        const percent = $this.data("percent");
+  
+        // animasi width
+        $this.css("width", percent + "%");
+  
+        // animasi angka
+        let count = 0;
+        const percentEl = $this.closest(".info").find(".progress-percent");
+        const interval = setInterval(() => {
+          if (count >= percent) {
+            clearInterval(interval);
+          } else {
+            count++;
+            percentEl.text(count + "%");
+          }
+        }, 20);
       });
     },
     {
       offset: "80%",
     }
-  );
-
+  );  
+  
   // Certificates Company Modal
   $(document).on("click", ".link-sertif-work", function () {
     var imgSrc = $(this).attr("data-img");
@@ -256,28 +278,32 @@ function refreshPage() {
 })(jQuery);
 
 // Portfolio Gallery
-document.querySelectorAll("[data-fancybox-trigger='gallery']").forEach((trigger) => {
-  trigger.addEventListener("click", (e) => {
-    e.preventDefault();
-    const galleryId = trigger.dataset.galleryId;
-    const galleryItems = Array.from(
-      document.querySelectorAll(`#gallery-${galleryId} a`),
-      (item) => ({ src: item.href, caption: item.dataset.caption })
-    );
+document
+  .querySelectorAll("[data-fancybox-trigger='gallery']")
+  .forEach((trigger) => {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const galleryId = trigger.dataset.galleryId;
+      const galleryItems = Array.from(
+        document.querySelectorAll(`#gallery-${galleryId} a`),
+        (item) => ({ src: item.href, caption: item.dataset.caption })
+      );
 
-    Fancybox.show(galleryItems, {
-      infinite: true,
-      buttons: ["zoom", "close"],
+      Fancybox.show(galleryItems, {
+        infinite: true,
+        buttons: ["zoom", "close"],
+      });
     });
   });
-});
 
-// Portfolio Deskripsi 
+// Portfolio Deskripsi
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("open-description")) {
     e.preventDefault();
     const galleryId = e.target.dataset.galleryId;
-    const descriptionContent = document.getElementById(`description-${galleryId}`).innerHTML;
+    const descriptionContent = document.getElementById(
+      `description-${galleryId}`
+    ).innerHTML;
 
     Fancybox.show([
       {
